@@ -1,7 +1,7 @@
 /*
  * jconf.h - Define the config data structure
  *
- * Copyright (C) 2013 - 2018, Max Lv <max.c.lv@gmail.com>
+ * Copyright (C) 2013 - 2019, Max Lv <max.c.lv@gmail.com>
  *
  * This file is part of the shadowsocks-libev.
  * shadowsocks-libev is free software; you can redistribute it and/or modify
@@ -44,11 +44,6 @@
 #define UDP_ONLY     3
 
 typedef struct {
-    char *host;
-    char *port;
-} ss_addr_t;
-
-typedef struct {
     char *port;
     char *password;
 } ss_port_password_t;
@@ -85,6 +80,8 @@ typedef struct {
     int mptcp;
     int ipv6_first;
     int no_delay;
+    char *workdir;
+    char *acl;
 } jconf_t;
 
 jconf_t *read_jconf(const char *file);
